@@ -1,0 +1,7 @@
+{
+    "job_type": "load",
+    "db_from": "open_api",
+    "ddl": "create table if not exists etl.open_apis\n(\n    api text,\n    description text,\n    auth text,\n    https text,\n    cors text,\n    link text,\n    category text,\n    work_date date\n);",
+    "product": "etl.open_apis",
+    "file_name": "open_apis.txt"
+}

@@ -1,0 +1,8 @@
+{
+    "job_type": "process",
+    "query": "create table if not exists dash.openapi_daily_count\n(\n    work_date date,\n    public_api_count int\n);\n\ndelete from dash.openapi_daily_count\nwhere work_date = '{work_date}';\n\ninsert into dash.openapi_daily_count(work_date, public_api_count) \nselect work_date, count(distinct link) public_api_count \nfrom etl.open_apis \nwhere work_date = '{work_date}'\ngroup by 1;",
+    "product": "dash.openapi_daily_count",
+    "dependencies": [
+        "etl.open_apis"
+    ]
+}
